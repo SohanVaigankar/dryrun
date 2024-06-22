@@ -1,0 +1,2 @@
+export const TOGGLE_THEME = "TOGGLE_THEME";
+export const UPDATE_SYSTEM_THEME = "UPDATE_SYSTEM_THEME";
