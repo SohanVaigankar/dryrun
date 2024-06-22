@@ -1,7 +1,7 @@
 "use client";
 import { createContext, useContext, useEffect, useReducer } from "react";
 // actions
-import { UPDATE_SYSTEM_THEME } from "./action.types";
+import { THEME_CONTEXT_ACTIONS } from "./action.types";
 // reducer
 import ThemeContextReducer from "./ThemeContextReducer";
 // utils, constants & helper functions
@@ -20,6 +20,7 @@ const initialState = {
       : THEMES.LIGHT,
   themePreference:
     localStorage.getItem("theme-preference") ?? THEME_PREFERENCES.LIGHT,
+  dispatch: () => null,
 };
 
 // creating theme context
@@ -33,16 +34,18 @@ export const ThemeContextProvider = (props: { children: React.ReactNode }) => {
 
   //   function to check the system theme
   const getSystemTheme = async () => {
+    if (state.themePreference !== THEME_PREFERENCES.SYSTEM) return;
+
     const systemTheme = matchMedia("(prefers-color-scheme: dark)");
 
     systemTheme.addEventListener("change", (e) =>
       e.matches
         ? dispatch({
-            type: UPDATE_SYSTEM_THEME,
+            type: THEME_CONTEXT_ACTIONS.UPDATE_SYSTEM_THEME,
             payload: THEMES.DARK,
           })
         : dispatch({
-            type: UPDATE_SYSTEM_THEME,
+            type: THEME_CONTEXT_ACTIONS.UPDATE_SYSTEM_THEME,
             payload: THEMES.LIGHT,
           }),
     );
@@ -66,9 +69,7 @@ export const ThemeContextProvider = (props: { children: React.ReactNode }) => {
     //   storing selected theme preference in localstorage
     localStorage.setItem("theme-preference", state.themePreference);
 
-    if (state.themePreference === THEME_PREFERENCES.SYSTEM) {
-      getSystemTheme();
-    }
+    getSystemTheme();
     // cleanup
     return () => getSystemTheme();
   }, [state.themePreference]);

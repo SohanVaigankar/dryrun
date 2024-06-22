@@ -16,16 +16,20 @@ import { RxSun, RxMoon } from "react-icons/rx";
 // constants & utils
 import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
 // actions
-import { TOGGLE_THEME } from "@/contexts/theme-context/action.types";
+import { THEME_CONTEXT_ACTIONS } from "@/contexts/theme-context/action.types";
 
 const Navbar = () => {
   const { currentTheme, dispatch } = useThemeContext();
 
-  const handleThemeToggle = async (preference: THEME_PREFERENCES) => {
-    await dispatch({ type: TOGGLE_THEME, payload: preference });
+  const handleThemeToggle = (preference: THEME_PREFERENCES) => {
+    dispatch({
+      type: THEME_CONTEXT_ACTIONS.TOGGLE_THEME,
+      payload: preference,
+    });
   };
+
   return (
-    <nav className="sticky flex items-center justify-between  px-10 py-3 bg-secondary shadow-sm">
+    <nav className="sticky flex items-center justify-between  bg-secondary px-10 py-3 shadow-sm">
       <div className="font-bold">{`DRY⚡RUN`}</div>
       <div className="flex">
         <DropdownMenu>

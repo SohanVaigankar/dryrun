@@ -1,9 +1,12 @@
-import { TOGGLE_THEME, UPDATE_SYSTEM_THEME } from "./action.types";
+import { THEME_CONTEXT_ACTIONS } from "./action.types";
 // utils & constants
 import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
+// types
+import { ThemeContextType, ThemeContextActionType } from "./theme.types";
+
 
 //   fn to get current theme based on selected theme preference
-const getCurrentTheme = (themePreference, systemTheme) => {
+const getCurrentTheme = (themePreference: THEME_PREFERENCES) => {
   switch (themePreference) {
     case THEME_PREFERENCES.DARK:
       return THEMES.DARK;
@@ -18,18 +21,21 @@ const getCurrentTheme = (themePreference, systemTheme) => {
   }
 };
 
-const ThemeContextReducer = (state, action) => {
+const ThemeContextReducer = (
+  state: ThemeContextType,
+  action: ThemeContextActionType,
+) => {
   switch (action.type) {
-    case TOGGLE_THEME:
+    case THEME_CONTEXT_ACTIONS.TOGGLE_THEME:
       return {
         ...state,
         themePreference: action.payload,
-        currentTheme: getCurrentTheme(action.payload, state.currentTheme),
+        currentTheme: getCurrentTheme(action.payload),
       };
-    case UPDATE_SYSTEM_THEME:
+    case THEME_CONTEXT_ACTIONS.UPDATE_SYSTEM_THEME:
       return {
         ...state,
-        currentTheme: getCurrentTheme(THEME_PREFERENCES.SYSTEM, action.payload),
+        currentTheme: getCurrentTheme(THEME_PREFERENCES.SYSTEM),
       };
 
     default:
