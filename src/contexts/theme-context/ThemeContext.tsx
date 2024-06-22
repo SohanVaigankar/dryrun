@@ -9,17 +9,9 @@ import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
 // types & props
 import { ThemeContextType } from "./theme.types";
 
-const getSystemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-  ? THEMES.DARK
-  : THEMES.LIGHT;
-
 const initialState = {
-  currentTheme:
-    localStorage.getItem("theme-preference") === THEME_PREFERENCES.SYSTEM
-      ? getSystemTheme
-      : THEMES.LIGHT,
-  themePreference:
-    localStorage.getItem("theme-preference") ?? THEME_PREFERENCES.LIGHT,
+  currentTheme: THEMES.LIGHT,
+  themePreference: THEME_PREFERENCES.LIGHT,
   dispatch: () => null,
 };
 
@@ -66,9 +58,6 @@ export const ThemeContextProvider = (props: { children: React.ReactNode }) => {
   }, [state.currentTheme]);
 
   useEffect(() => {
-    //   storing selected theme preference in localstorage
-    localStorage.setItem("theme-preference", state.themePreference);
-
     getSystemTheme();
     // cleanup
     return () => getSystemTheme();
