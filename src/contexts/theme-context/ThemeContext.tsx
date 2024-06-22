@@ -9,7 +9,7 @@ import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
 // types & props
 import { ThemeContextType } from "./theme.types";
 
-const getSystemTheme = matchMedia("(prefers-color-scheme: dark)").matches
+const getSystemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
   ? THEMES.DARK
   : THEMES.LIGHT;
 
@@ -36,7 +36,7 @@ export const ThemeContextProvider = (props: { children: React.ReactNode }) => {
   const getSystemTheme = async () => {
     if (state.themePreference !== THEME_PREFERENCES.SYSTEM) return;
 
-    const systemTheme = matchMedia("(prefers-color-scheme: dark)");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
     systemTheme.addEventListener("change", (e) =>
       e.matches

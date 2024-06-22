@@ -1,9 +1,10 @@
+"use client";
+
 import { THEME_CONTEXT_ACTIONS } from "./action.types";
 // utils & constants
 import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
 // types
 import { ThemeContextType, ThemeContextActionType } from "./theme.types";
-
 
 //   fn to get current theme based on selected theme preference
 const getCurrentTheme = (themePreference: THEME_PREFERENCES) => {
@@ -13,7 +14,7 @@ const getCurrentTheme = (themePreference: THEME_PREFERENCES) => {
     case THEME_PREFERENCES.LIGHT:
       return THEMES.LIGHT;
     case THEME_PREFERENCES.SYSTEM:
-      return matchMedia("(prefers-color-scheme: dark)").matches
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
         ? THEMES.DARK
         : THEMES.LIGHT;
     default:
