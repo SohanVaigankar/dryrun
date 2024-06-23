@@ -18,18 +18,26 @@ import { THEMES, THEME_PREFERENCES } from "@/lib/constants";
 // actions
 import { THEME_CONTEXT_ACTIONS } from "@/contexts/theme-context/action.types";
 
+const AVAILABLE_THEME_PREFERENCES = [
+  { label: "Light", value: THEME_PREFERENCES.LIGHT },
+  { label: "Dark", value: THEME_PREFERENCES.DARK },
+  { label: "System", value: THEME_PREFERENCES.SYSTEM },
+];
+
 const Navbar = () => {
   const { currentTheme, dispatch } = useThemeContext();
 
+  // fn to handle theme selector
   const handleThemeToggle = (preference: THEME_PREFERENCES) => {
+    localStorage.setItem("theme-preference", preference);
     dispatch({
-      type: THEME_CONTEXT_ACTIONS.TOGGLE_THEME,
+      type: THEME_CONTEXT_ACTIONS.THEME_PREFERENCE,
       payload: preference,
     });
   };
 
   return (
-    <nav className="sticky top-0 flex items-center justify-between  bg-secondary px-10 py-3 shadow-sm z-0">
+    <nav className="sticky top-0 z-0 flex items-center  justify-between bg-secondary px-10 py-3 shadow-sm">
       <div className="font-bold">{`DRY⚡RUN`}</div>
       <div className="flex">
         <DropdownMenu>
@@ -47,21 +55,14 @@ const Navbar = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem
-              onClick={() => handleThemeToggle(THEME_PREFERENCES.LIGHT)}
-            >
-              Light
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={() => handleThemeToggle(THEME_PREFERENCES.DARK)}
-            >
-              Dark
-            </DropdownMenuItem>
-            <DropdownMenuItem
-              onClick={() => handleThemeToggle(THEME_PREFERENCES.SYSTEM)}
-            >
-              System
-            </DropdownMenuItem>
+            {AVAILABLE_THEME_PREFERENCES.map((preference, index) => (
+              <DropdownMenuItem
+                key={index}
+                onClick={() => handleThemeToggle(preference.value)}
+              >
+                {preference.label}
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

@@ -34,12 +34,12 @@ const ProblemStatement = () => {
             overrides: {
               code: {
                 props: {
-                  className: "bg-primary/20 px-2 py-1 rounded-sm",
+                  className: "bg-primary/20 px-2 py-[0.15rem] rounded-sm",
                 },
               },
               h3: {
                 props: {
-                  className: "font-semibold text-xl mt-5",
+                  className: "font-semibold text-xl mt-5 mb-1",
                 },
               },
               li: {

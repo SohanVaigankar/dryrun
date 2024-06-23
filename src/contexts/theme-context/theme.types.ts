@@ -14,10 +14,10 @@ type ActionMap<M extends Record<string, any>> = {
 // Theme Context Action Payload type definition
 type ThemeContextActionPayloadType = {
   [THEME_CONTEXT_ACTIONS.TOGGLE_THEME]: {
-    payload: THEME_PREFERENCES;
+    payload: THEMES | string;
   };
-  [THEME_CONTEXT_ACTIONS.UPDATE_SYSTEM_THEME]: {
-    payload: THEMES;
+  [THEME_CONTEXT_ACTIONS.THEME_PREFERENCE]: {
+    payload: THEME_PREFERENCES | string;
   };
 };
 
@@ -27,7 +27,6 @@ export type ThemeContextActionType =
 
 export type ThemeContextType = {
   currentTheme: THEMES;
-  systemTheme?: THEMES;
   themePreference: THEME_PREFERENCES | string;
   dispatch: React.Dispatch<ThemeContextActionType>;
 };
