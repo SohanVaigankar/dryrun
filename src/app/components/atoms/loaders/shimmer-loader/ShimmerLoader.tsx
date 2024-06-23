@@ -1,16 +1,17 @@
 import "./ShimmerLoader.css";
 
 type ShimmerLoaderProps = {
+  extraClassName?: string;
   height: string;
   width: string;
 };
 
 const ShimmerLoader = (props: ShimmerLoaderProps) => {
-  const { height, width } = props;
+  const { extraClassName, height, width } = props;
 
   return (
     <div
-      className={`shimmer-animate  rounded-sm bg-[#777]`}
+      className={`shimmer-animate  rounded-sm bg-[#777] ${extraClassName ? extraClassName : ""}`}
       style={{
         height: height ? height : "10px",
         width: width ? width : "100%",

@@ -3,11 +3,11 @@ import { GeistSans } from "geist/font/sans";
 import "@/styles/globals.css";
 
 // context providers
-import { ThemeContextProvider } from "@/contexts";
+import { SandBoxContextProvider, ThemeContextProvider } from "@/contexts";
 
 // components
 import { Footer } from "./components/atoms";
-import {  Navbar } from "./components/molecules";
+import { Navbar } from "./components/molecules";
 
 export const metadata = {
   title: "DryRun",
@@ -22,13 +22,15 @@ export default function RootLayout({
 }) {
   return (
     <ThemeContextProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
-        <body>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-      </html>
+      <SandBoxContextProvider>
+        <html lang="en" className={`${GeistSans.variable}`}>
+          <body>
+            <Navbar />
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </SandBoxContextProvider>
     </ThemeContextProvider>
   );
 }

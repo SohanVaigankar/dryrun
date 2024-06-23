@@ -1,17 +1,11 @@
-import React from "react";
+"use client";
+// contexts
+import { useSandBoxContext } from "@/contexts";
 // icons
 import { GoCommandPalette } from "react-icons/go";
 
 const Result = () => {
-  const running = true;
-  const result = {
-    status: "success",
-    testCases: {
-      passed: 2,
-      total: 6,
-    },
-    executionResult: "9",
-  };
+  const { isRunning, result } = useSandBoxContext();
 
   return (
     <section className="flex h-[30%] flex-col rounded-md bg-secondary p-2 shadow-md">
@@ -22,11 +16,15 @@ const Result = () => {
         </div>
       </div>
       <div className="h-full w-full flex-wrap rounded-md bg-neutral-50 p-4 text-primary shadow-sm dark:bg-primary-foreground dark:text-primary">
-        <p className="text-sm">Run the program to see the results</p>
-        {running && <code>$ compiling and executing the code...</code>}
-        <br />
-        {result.status === "success" && (
+        {!result && !isRunning && (
+          <p className="text-sm">Run the program to see the results</p>
+        )}
+        {isRunning && <code>$ generating result...</code>}
+
+        {result?.status === "success" && (
           <>
+            <code>Result:</code>
+            <br />
             <code className="text-green-700">$ {result.executionResult}</code>
             <br />
             <code className="text-green-700">

@@ -13,6 +13,23 @@ export enum THEMES {
   DARK = "dark",
 }
 
+export const PROBLEM_STATEMENTS = [
+  {
+    id: "problem_1",
+    title: "Sum of two numbers",
+    description: "Write a function to find the sum of two numbers 'a' and 'b'",
+    difficulty: "easy",
+    testCases: [
+      { case: "case1" },
+      { case: "case2" },
+      { case: "case3" },
+      { case: "case4" },
+      { case: "case5" },
+      { case: "case6" },
+    ],
+  },
+];
+
 export const LANGUAGES = [
   {
     languageName: "JavaScript",
@@ -66,10 +83,16 @@ export const LANGUAGES = [
   },
 ];
 
-export const EXAMPLE_SNIPPETS: Record<string, string> = {
-  javascript: `\nfunction sum(a, b) {\n\treturn a + b;\n}\n\nsum(5, 10);\n`,
-  typescript: `\nfunction sum(a: number, b: number) {\n\treturn a + b;\n}\n\nsum(5, 10);\n`,
-  python: `\ndef sum(name):\n\treturn a + b\n\nsum(5, 10)\n`,
-  java: `\npublic class Main {\n\tpublic static int sum(int a, int b) {\n\t\treturn a + b;\n\t}\n\n\tpublic static void main(String[] args) {\n\t\tint result = sum(5, 10);\n\t\tSystem.out.println(result);\n\t}\n}\n`,
-  cpp: `#include <iostream>\n\nint sum(int a, int b) {\n\treturn a + b;\n}\n\nint main() {\n\tint result = sum(5, 10);\n\tstd::cout  << result << std::endl;\n\treturn 0;\n}`,
-};
+export const SOLUTIONS = [
+  {
+    id: "solution_1",
+    problemId: "problem_1",
+    solutions: {
+      javascript: `\nfunction sum(a, b) {\n\treturn a + b;\n}\n\nsum(5, 10);\n`,
+      typescript: `\nfunction sum(a: number, b: number) {\n\treturn a + b;\n}\n\nsum(5, 10);\n`,
+      python: `\ndef sum(name):\n\treturn a + b\n\nsum(5, 10)\n`,
+      java: `\npublic class Main {\n\tpublic static int sum(int a, int b) {\n\t\treturn a + b;\n\t}\n\n\tpublic static void main(String[] args) {\n\t\tint result = sum(5, 10);\n\t\tSystem.out.println(result);\n\t}\n}\n`,
+      cpp: `#include <iostream>\n\nint sum(int a, int b) {\n\treturn a + b;\n}\n\nint main() {\n\tint result = sum(5, 10);\n\tstd::cout  << result << std::endl;\n\treturn 0;\n}`,
+    },
+  },
+];
