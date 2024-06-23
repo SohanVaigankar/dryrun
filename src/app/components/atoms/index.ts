@@ -1,4 +1,5 @@
 export { default as Modal } from "./modal/Modal";
+export { default as CountdownTimer } from "./countdown-timer/CountdownTimer";
 
 // shadcn
 export * from "./button/Button";
