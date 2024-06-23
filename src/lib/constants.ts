@@ -12,12 +12,12 @@ export enum THEMES {
   LIGHT = "light",
   DARK = "dark",
 }
-
 export const PROBLEM_STATEMENTS = [
   {
     id: "problem_1",
     title: "Sum of two numbers",
-    description: "Write a function to find the sum of two numbers 'a' and 'b'",
+    description:
+      "Write a function `sum(a, b)` that takes two integers `a` and `b` as input and returns their sum.\n\n ### Example 3:\n**Input:** `a = 0` & `b = -7`\n\n**Output:** -7\n### Example 2:\n**Input:** `a = -5` & `b = 7`\n\n**Output:** 2\n\n### Example 1:\n**Input:** `a = 5` & `b = 7`\n\n**Output:** 12\n\n### Constraints\n\n- => The inputs a and b are integers.\n\n- => The result will be an integer.",
     difficulty: "easy",
     testCases: [
       { case: "case1" },

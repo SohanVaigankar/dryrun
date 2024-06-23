@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="sticky top-0 flex items-center justify-between  bg-secondary px-10 py-3 shadow-sm">
+    <nav className="sticky top-0 flex items-center justify-between  bg-secondary px-10 py-3 shadow-sm z-0">
       <div className="font-bold">{`DRY⚡RUN`}</div>
       <div className="flex">
         <DropdownMenu>

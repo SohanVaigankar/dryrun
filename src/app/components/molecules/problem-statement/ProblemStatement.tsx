@@ -1,7 +1,9 @@
 "use client";
 
-import { useSandBoxContext } from "@/contexts";
 import React from "react";
+import Markdown from "markdown-to-jsx";
+// context
+import { useSandBoxContext } from "@/contexts";
 // icons
 import { GoDotFill } from "react-icons/go";
 import { MdOutlineDescription } from "react-icons/md";
@@ -16,8 +18,8 @@ const ProblemStatement = () => {
           <span>Problem Description</span>
         </div>
       </div>
-      <div className="h-full w-full flex-wrap rounded-md bg-neutral-50 p-4 text-primary shadow-sm dark:bg-primary-foreground/40 dark:text-primary">
-        <div className="my-3 flex flex-col items-center justify-start gap-5 sm:flex-row">
+      <div className="h-full   w-full   flex-wrap overflow-y-auto rounded-md bg-neutral-50 p-4 text-primary shadow-sm dark:bg-primary-foreground/40 dark:text-primary">
+        <div className="my-3 mb-8 flex flex-col items-center justify-start gap-5 sm:flex-row">
           <h3 className="max-w-fit text-xl font-semibold sm:text-2xl lg:text-3xl">
             {problem.title}
           </h3>
@@ -27,7 +29,34 @@ const ProblemStatement = () => {
               problem.difficulty.slice(1)}
           </span>
         </div>
-        <p className="text-sm">{problem.description}</p>
+        <Markdown
+          options={{
+            overrides: {
+              code: {
+                props: {
+                  className: "bg-primary/20 px-2 py-1 rounded-sm",
+                },
+              },
+              h3: {
+                props: {
+                  className: "font-semibold text-xl mt-5",
+                },
+              },
+              li: {
+                props: {
+                  className: "pl-5",
+                },
+              },
+              strong: {
+                props: {
+                  className: "font-semibold  ",
+                },
+              },
+            },
+          }}
+        >
+          {problem.description}
+        </Markdown>
       </div>
     </section>
   );

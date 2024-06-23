@@ -25,7 +25,7 @@ const SandBoxContextReducer = (
         solutionDetails: action.payload,
         result: {
           status: "success",
-          executionResult: "9",
+          executionResult: "15",
           testCases: {
             passed: 2,
             total: 6,

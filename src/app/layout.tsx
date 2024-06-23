@@ -6,7 +6,6 @@ import "@/styles/globals.css";
 import { SandBoxContextProvider, ThemeContextProvider } from "@/contexts";
 
 // components
-import { Footer } from "./components/atoms";
 import { Navbar } from "./components/molecules";
 
 export const metadata = {
@@ -24,10 +23,9 @@ export default function RootLayout({
     <ThemeContextProvider>
       <SandBoxContextProvider>
         <html lang="en" className={`${GeistSans.variable}`}>
-          <body>
+          <body className="h-screen ">
             <Navbar />
             {children}
-            <Footer />
           </body>
         </html>
       </SandBoxContextProvider>
