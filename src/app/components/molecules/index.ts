@@ -5,3 +5,4 @@ export { default as Result } from "./result/Result";
 
 // folders
 export * from './modals'
+export * from './dropdowns'

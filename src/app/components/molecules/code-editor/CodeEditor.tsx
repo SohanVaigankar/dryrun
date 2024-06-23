@@ -7,20 +7,13 @@ import * as monaco from "monaco-editor";
 import { useSandBoxContext, useThemeContext } from "@/contexts";
 import { SANDBOX_CONTEXT_ACTIONS } from "@/contexts/sandbox-context/action.types";
 // components
-import {
-  Button,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  ShimmerLoader,
-} from "../../atoms";
+import { Button, ShimmerLoader } from "../../atoms";
 import SolutionSubmittedModal from "../modals/solution-submitted-modal/SolutionSubmittedModal";
 // utils, constants & helper functions
-import { SOLUTIONS, LANGUAGES, THEMES } from "@/lib/constants";
+import { SOLUTIONS, THEMES } from "@/lib/constants";
 // icons
 import { IoCloudUploadOutline, IoPlay, IoCodeSlash } from "react-icons/io5";
+import { SelectProgrammingLanguage } from "../dropdowns";
 
 const CodeEditor = () => {
   // contexts
@@ -138,27 +131,8 @@ const CodeEditor = () => {
           <span>Code</span>
         </div>
         <div className="flex items-center gap-2">
-          <Select
-            defaultValue={"javascript"}
-            onValueChange={handleLanguageChange}
-          >
-            <SelectTrigger className="w-[180px] focus-visible:ring-0 focus-visible:ring-offset-0">
-              <SelectValue placeholder="Select Language" />
-            </SelectTrigger>
-            <SelectContent>
-              {LANGUAGES.map((language, index) => (
-                <SelectItem
-                  key={index}
-                  value={language.languageName.toLowerCase()}
-                >
-                  <div className="flex items-center justify-start  gap-2 ">
-                    {<language.icon />}
-                    {language.languageName}
-                  </div>
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <SelectProgrammingLanguage onChange={handleLanguageChange} />
+
           <Button
             size="sm"
             className="flex items-center justify-center gap-1 bg-green-700 text-white hover:bg-green-900 hover:text-white/90"
