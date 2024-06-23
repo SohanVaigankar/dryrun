@@ -5,6 +5,7 @@ import { Editor } from "@monaco-editor/react";
 import * as monaco from "monaco-editor";
 // contexts
 import { useSandBoxContext, useThemeContext } from "@/contexts";
+import { SANDBOX_CONTEXT_ACTIONS } from "@/contexts/sandbox-context/action.types";
 // components
 import {
   Button,
@@ -15,11 +16,11 @@ import {
   SelectValue,
   ShimmerLoader,
 } from "../../atoms";
+import SolutionSubmittedModal from "../modals/solution-submitted-modal/SolutionSubmittedModal";
 // utils, constants & helper functions
 import { SOLUTIONS, LANGUAGES, THEMES } from "@/lib/constants";
 // icons
 import { IoCloudUploadOutline, IoPlay, IoCodeSlash } from "react-icons/io5";
-import { SANDBOX_CONTEXT_ACTIONS } from "@/contexts/sandbox-context/action.types";
 
 const CodeEditor = () => {
   // contexts
@@ -123,8 +124,6 @@ const CodeEditor = () => {
     }
   };
 
-  console.log(isSubmitted);
-
   const editorConfigs = {
     scrollBeyondLastLine: false,
   };
@@ -200,6 +199,9 @@ const CodeEditor = () => {
           options={editorConfigs}
         />
       </div>
+      {isSubmitted && (
+        <SolutionSubmittedModal openModal={isSubmitted} language={language} />
+      )}
     </section>
   );
 };

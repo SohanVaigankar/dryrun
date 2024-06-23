@@ -63,6 +63,10 @@ type SandBoxContextActionPayloadType = {
   [SANDBOX_CONTEXT_ACTIONS.IS_SOLUTION_SUBMITTING]: {
     payload: boolean;
   };
+  // for demo purpose
+  [SANDBOX_CONTEXT_ACTIONS.RESET_SUBMIT]: {
+    payload: boolean;
+  };
 };
 
 // SandBox Context Action types

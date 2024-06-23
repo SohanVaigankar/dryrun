@@ -49,6 +49,12 @@ const SandBoxContextReducer = (
         isSubmitting: action.payload,
         isSubmitted: action.payload === true,
       };
+      // for demo purpose
+    case SANDBOX_CONTEXT_ACTIONS.RESET_SUBMIT:
+      return {
+        ...state,
+        isSubmitted: action.payload,
+      };
 
     default:
       return state;
