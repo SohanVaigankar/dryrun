@@ -29,6 +29,7 @@ type ResultType = {
 
 export type SandBoxContextType = {
   problem: ProblemType;
+  language: string;
   solutionDetails: SolutionDetailsType | null;
   isRunning: boolean;
   isSubmitting: boolean;
@@ -47,6 +48,9 @@ type ActionMap<M extends Record<string, any>> = {
 type SandBoxContextActionPayloadType = {
   [SANDBOX_CONTEXT_ACTIONS.IS_PROBLEM_STATEMENT_LOADING]: {
     payload: boolean;
+  };
+  [SANDBOX_CONTEXT_ACTIONS.CHANGE_LANGUAGE]: {
+    payload: string;
   };
   [SANDBOX_CONTEXT_ACTIONS.SELECT_PROBLEM_STATEMENT]: {
     payload: boolean;

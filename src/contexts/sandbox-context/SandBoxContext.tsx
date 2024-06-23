@@ -12,6 +12,7 @@ import { PROBLEM_STATEMENTS } from "@/lib/constants";
 
 const initialState = {
   problem: PROBLEM_STATEMENTS[0],
+  language:'javascript',
   solutionDetails: null,
   isRunning: false,
   isSubmitting: false,
@@ -33,6 +34,7 @@ export const SandBoxContextProvider = (props: {
 
   const values = {
     problem: state.problem,
+    language: state.language,
     solutionDetails: state.solutionDetails,
     isRunning: state.isRunning,
     isSubmitting: state.isSubmitting,

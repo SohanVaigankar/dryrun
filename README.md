@@ -1,29 +1,30 @@
-# Create T3 App
+# DryRun
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Deployment Link - [https://dryrunn.vercel.app](https://dryrunn.vercel.app)
 
-## What's next? How do I make an app with this?
+Tech Stack and packages
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- [x] NextJS
+- [x] TypeScript
+- [x] TailwindCSS
+- [x] Monaco Editor
+- [x] Shadcn/Radix UI 
+- [x] Markdown to JSX
+- [x] Vercel - for deployment
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+### To run the project locally
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+1. simply clone this github repository on your local machine
+2. navigate to the cloned repo using cd command in terminal
+3. ensure that you're running node v20 or above
+4. execute following command in the directory
 
-## Learn More
+   ```js
+   npm install && npm run dev
+   ```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+5. follow the instructions on terminal, by default your application shall be running on [http://localhost:3000](http://localhost:3000)
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+### Note:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- [Sohan Vaigankar](https://peerlist.io/sohan) - svaigankar2000@gmail.com

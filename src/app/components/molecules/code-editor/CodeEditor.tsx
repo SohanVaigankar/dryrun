@@ -25,12 +25,11 @@ import { IoCloudUploadOutline, IoPlay, IoCodeSlash } from "react-icons/io5";
 const CodeEditor = () => {
   // contexts
   const { currentTheme } = useThemeContext();
-  const { problem, isRunning, isSubmitting, isSubmitted, dispatch } =
+  const { language, problem, isRunning, isSubmitting, isSubmitted, dispatch } =
     useSandBoxContext();
   // refs
   const editorRef = useRef<monaco.editor.IStandaloneCodeEditor | null>(null);
   // local states
-  const [language, setLanguage] = useState("javascript");
   const [sourceCode, setSourceCode] = useState<string | undefined>(
     SOLUTIONS.find((sol) => sol.problemId === problem.id)?.solutions[
       "javascript"
@@ -54,7 +53,10 @@ const CodeEditor = () => {
 
   // fn to handle language change
   const handleLanguageChange = (languageName: string) => {
-    setLanguage(languageName);
+    dispatch({
+      type: SANDBOX_CONTEXT_ACTIONS.CHANGE_LANGUAGE,
+      payload: languageName,
+    });
     setSourceCode(
       SOLUTIONS?.find((sol) => sol.problemId === problem.id)?.solutions[
         languageName

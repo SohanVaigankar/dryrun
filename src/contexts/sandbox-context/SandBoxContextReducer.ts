@@ -19,6 +19,14 @@ const SandBoxContextReducer = (
       return {
         ...state,
       };
+    case SANDBOX_CONTEXT_ACTIONS.CHANGE_LANGUAGE:
+      return {
+        ...state,
+        language: action.payload,
+        result: null,
+        solutionDetails: null,
+        isSubmitted: false,
+      };
     case SANDBOX_CONTEXT_ACTIONS.EXECUTE_SOLUTION:
       return {
         ...state,
@@ -49,7 +57,7 @@ const SandBoxContextReducer = (
         isSubmitting: action.payload,
         isSubmitted: action.payload === true,
       };
-      // for demo purpose
+    // for demo purpose
     case SANDBOX_CONTEXT_ACTIONS.RESET_SUBMIT:
       return {
         ...state,
